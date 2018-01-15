@@ -1,2 +1,3 @@
-python
-python-pip
+nginx
+redis
+mariadb
