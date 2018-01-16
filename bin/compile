@@ -26,9 +26,9 @@ function indent() {
     *)      sed -u "$c";;
   esac
 }
-mkdir -p .virtualenvs
+mkdir -p "$BIN_DIR/.virtualenvs"
 
-mkdir -p .kaleido
+mkdir -p "$BIN_DIR/.kaleido"
 
 source "/app/.heroku/python/bin/virtualenvwrapper.sh" | indent
 export WORKON_HOME=~/.virtualenvs
