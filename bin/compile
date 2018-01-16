@@ -31,5 +31,5 @@ mkdir -p "$BUILD_DIR/.virtualenvs"
 topic "create $BUILD_DIR/.kaleido"
 mkdir -p "$BUILD_DIR/.kaleido"
 
-source "/app/.heroku/python/bin/virtualenvwrapper.sh" | indent
+source "$BUILD_DIR/.heroku/python/bin/virtualenvwrapper.sh" | indent
 export WORKON_HOME=~/.virtualenvs
