@@ -7,4 +7,5 @@ echo "source /app/.heroku/python/bin/virtualenvwrapper.sh" >> ~/.bashrc
 
 source ~/.bashrc
 
+echo "<><><><><><>"
 mkvirtualenv kaleido_admin -p python3
