@@ -31,6 +31,3 @@ source "/app/.heroku/python/bin/virtualenvwrapper.sh"
 export WORKON_HOME=~/.virtualenvs
 
 mkvirtualenv kaleido_admin -p python3
-
-
-
