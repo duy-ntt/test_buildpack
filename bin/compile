@@ -3,9 +3,32 @@
 # Fail fast and fail hard.
 set -eo pipefail
 
-echo "source /app/.heroku/python/bin/virtualenvwrapper.sh" >> ~/.bashrc
+# Paths.
+BIN_DIR=$(cd "$(dirname "$0")"; pwd) # absolute path
+ROOT_DIR=$(dirname "$BIN_DIR")
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
 
-source ~/.bashrc
+function error() {
+  echo " !     $*" >&2
+  exit 1
+}
+
+function topic() {
+  echo "-----> $*"
+}
+
+function indent() {
+  c='s/^/       /'
+  case $(uname) in
+    Darwin) sed -l "$c";;
+    *)      sed -u "$c";;
+  esac
+}
+
+source "/app/.heroku/python/bin/virtualenvwrapper.sh"
+export WORKON_HOME=~/.virtualenvs
 
 mkvirtualenv kaleido_admin -p python3
 
