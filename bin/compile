@@ -26,8 +26,9 @@ function indent() {
     *)      sed -u "$c";;
   esac
 }
+topic("create $BIN_DIR/.virtualenvs")
 mkdir -p "$BIN_DIR/.virtualenvs"
-
+topic("create $BIN_DIR/.kaleido")
 mkdir -p "$BIN_DIR/.kaleido"
 
 source "/app/.heroku/python/bin/virtualenvwrapper.sh" | indent
