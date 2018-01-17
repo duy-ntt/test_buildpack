@@ -34,8 +34,8 @@ mkdir -p "$BUILD_DIR/.kaleido"
 # echo "export WORKON_HOME=~/.virtualenvs" > "$BUILD_DIR/.bashrc"
 # echo "source ~/.heroku/python/bin/virtualenvwrapper.sh $BUILD_DIR" > "$BUILD_DIR/.bashrc"
 
-export WORKON_HOME=~/.virtualenvs
-source ~/.heroku/python/bin/virtualenvwrapper.sh
+export WORKON_HOME="$BUILD_DIR/.virtualenvs"
+source "$BUILD_DIR/.heroku/python/bin/virtualenvwrapper.sh"
 
 mkvirtualenv kaleido_admin -p python3
 
