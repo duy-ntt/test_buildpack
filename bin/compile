@@ -37,9 +37,9 @@ mkdir -p "$BUILD_DIR/.kaleido"
 export WORKON_HOME="$BUILD_DIR/.virtualenvs"
 source "$BUILD_DIR/.heroku/python/bin/virtualenvwrapper.sh"
 
-mkvirtualenv kaleido_admin -p python3
+virtualenv $WORKON_HOME/kaleido_admin -p python3
 
-cd $BUILD_DIR/kaleido_admin
-pip install -r requirements.txt
+# cd $BUILD_DIR/kaleido_admin
+# pip install -r requirements.txt
 
 deactivate
