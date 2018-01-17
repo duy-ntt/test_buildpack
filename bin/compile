@@ -38,3 +38,5 @@ export WORKON_HOME=~/.virtualenvs
 source ~/.heroku/python/bin/virtualenvwrapper.sh
 
 mkvirtualenv kaleido_admin -p python3
+
+deactivate
