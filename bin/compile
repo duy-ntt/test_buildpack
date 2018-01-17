@@ -39,4 +39,7 @@ source ~/.heroku/python/bin/virtualenvwrapper.sh
 
 mkvirtualenv kaleido_admin -p python3
 
+cd $BUILD_DIR/kaleido_admin
+pip install -r requirements.txt
+
 deactivate
