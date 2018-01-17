@@ -40,6 +40,7 @@ source "$BUILD_DIR/.heroku/python/bin/virtualenvwrapper.sh"
 virtualenv $WORKON_HOME/kaleido_admin -p python3
 source $WORKON_HOME/kaleido_admin/bin/activate
 
+pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt"
 
 # cd $BUILD_DIR/kaleido_admin
 # pip install -r requirements.txt
