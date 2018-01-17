@@ -46,6 +46,9 @@ pip install mysqlclient
 unset PYTHONPATH
 unset PYTHONHOME
 
+# alias python="/usr/bin/python2.7"
+# alias python='python3'
+
 # cd $BUILD_DIR/kaleido_admin
 # pip install -r requirements.txt
 
