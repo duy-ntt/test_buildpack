@@ -40,9 +40,11 @@ mkdir -p "$CACHE_DIR/.virtualenvs"
 chmod -R 777 "$CACHE_DIR/.virtualenvs"
 # source "$BUILD_DIR/.heroku/python/bin/virtualenvwrapper.sh"
 
+~/.heroku/python/bin/virtualenvwrapper.sh
+mkvirtualenv kaleido_admin -p python3
 
 
-virtualenv $WORKON_HOME/kaleido_admin -p python3
+# virtualenv $WORKON_HOME/kaleido_admin -p python3
 
 function activate () {
   $WORKON_HOME/kaleido_admin/bin/activate
