@@ -41,14 +41,14 @@ topic "ENV_DIR: $ENV_DIR"
 # echo "export WORKON_HOME=~/.virtualenvs" > "$BUILD_DIR/.bashrc"
 # echo "source ~/.heroku/python/bin/virtualenvwrapper.sh $BUILD_DIR" > "$BUILD_DIR/.bashrc"
 
-export WORKON_HOME="$BUILD_DIR/.virtualenvs"
+export WORKON_HOME="$ROOT_DIR/.virtualenvs"
 # source "$BUILD_DIR/.heroku/python/bin/virtualenvwrapper.sh"
 
-virtualenv kaleido_admin -p python3
+virtualenv $WORKON_HOME/kaleido_admin -p python3
 # source $WORKON_HOME/kaleido_admin/bin/activate
 
-$ROOT_DIR/kaleido_admin/bin/pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt"
-$ROOT_DIR/kaleido_admin/bin/pip install mysqlclient
+$WORKON_HOME/kaleido_admin/bin/pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt"
+$WORKON_HOME/kaleido_admin/bin/pip install mysqlclient
 
 unset PYTHONPATH
 unset PYTHONHOME
