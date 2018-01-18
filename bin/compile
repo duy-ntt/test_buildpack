@@ -68,7 +68,7 @@ activate
 pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt"
 pip install mysqlclient
 
-deactivate
+# deactivate
 
 cp -r $WORKON_HOME "$BUILD_DIR/.virtualenvs"
 
