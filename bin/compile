@@ -41,9 +41,9 @@ topic "ENV_DIR: $ENV_DIR"
 # echo "export WORKON_HOME=~/.virtualenvs" > "$BUILD_DIR/.bashrc"
 # echo "source ~/.heroku/python/bin/virtualenvwrapper.sh $BUILD_DIR" > "$BUILD_DIR/.bashrc"
 
-export WORKON_HOME="$ROOT_DIR/.virtualenvs"
-mkdir -p "$ROOT_DIR/.virtualenvs"
-chmod -R 777 "$ROOT_DIR/.virtualenvs"
+export WORKON_HOME="~/.virtualenvs"
+mkdir -p "~/.virtualenvs"
+chmod -R 777 "~/.virtualenvs"
 # source "$BUILD_DIR/.heroku/python/bin/virtualenvwrapper.sh"
 
 # source ~/.heroku/python/bin/virtualenvwrapper.sh
@@ -61,8 +61,6 @@ function activate () {
 
 topic "activate"
 activate
-
-
 
 pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt"
 pip install mysqlclient
