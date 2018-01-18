@@ -69,12 +69,12 @@ pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt"
 pip install mysqlclient
 
 # deactivate
-ls "$WORKON_HOME"
+ls "$WORKON_HOME/kaleido_admin"
 
 
-cp -avr "$WORKON_HOME" "$BUILD_DIR/.virtualenvs"
+cp -avr "$WORKON_HOME/" "$BUILD_DIR/.virtualenvs/"
 
-ls "$BUILD_DIR/.virtualenvs"
+ls "$BUILD_DIR/.virtualenvs/kaleido_admin"
 
 unset PYTHONPATH
 unset PYTHONHOME
