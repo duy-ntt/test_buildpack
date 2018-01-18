@@ -42,8 +42,8 @@ topic "WORKON_HOME: $WORKON_HOME"
 virtualenv kaleido_admin -p python3
 # source $WORKON_HOME/kaleido_admin/bin/activate
 
-$BIN_DIR/pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt"
-$BIN_DIR/pip install mysqlclient
+$ROOT_DIR/kaleido_admin/bin install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt"
+$ROOT_DIR/kaleido_admin/bin install mysqlclient
 
 unset PYTHONPATH
 unset PYTHONHOME
