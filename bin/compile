@@ -44,14 +44,20 @@ chmod -R 777 "$CACHE_DIR/.virtualenvs"
 
 virtualenv $WORKON_HOME/kaleido_admin -p python3
 
-activate () {
+function activate () {
   $WORKON_HOME/kaleido_admin/bin/activate
+}
+
+function deactivate () {
+  $WORKON_HOME/kaleido_admin/bin/deactivate
 }
 
 activate
 
-$WORKON_HOME/kaleido_admin/bin/pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt"
-$WORKON_HOME/kaleido_admin/bin/pip install mysqlclient
+pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt"
+pip install mysqlclient
+
+deactivate
 
 cp -r $WORKON_HOME "$BUILD_DIR/.virtualenvs"
 
