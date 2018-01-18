@@ -47,8 +47,8 @@ export WORKON_HOME="$BUILD_DIR/.virtualenvs"
 virtualenv kaleido_admin -p python3
 # source $WORKON_HOME/kaleido_admin/bin/activate
 
-$CACHE_DIR/kaleido_admin/bin/pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt"
-$CACHE_DIR/kaleido_admin/bin/pip install mysqlclient
+$ROOT_DIR/kaleido_admin/bin/pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt"
+$ROOT_DIR/kaleido_admin/bin/pip install mysqlclient
 
 unset PYTHONPATH
 unset PYTHONHOME
