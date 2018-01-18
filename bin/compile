@@ -40,29 +40,31 @@ mkdir -p "$CACHE_DIR/.virtualenvs"
 chmod -R 777 "$CACHE_DIR/.virtualenvs"
 # source "$BUILD_DIR/.heroku/python/bin/virtualenvwrapper.sh"
 
-source ~/.heroku/python/bin/virtualenvwrapper.sh
-mkvirtualenv kaleido_admin -p python3
+# source ~/.heroku/python/bin/virtualenvwrapper.sh
+# mkvirtualenv kaleido_admin -p python3
 
+cd $BUILD_DIR/.heroku/python
+./configure --prefix=$WORKON_HOME
 
-# virtualenv $WORKON_HOME/kaleido_admin -p python3
+virtualenv $WORKON_HOME/kaleido_admin -p python3
 
-function activate () {
-  $WORKON_HOME/kaleido_admin/bin/activate
-}
+# function activate () {
+#   $WORKON_HOME/kaleido_admin/bin/activate
+# }
 
-function deactivate () {
-  $WORKON_HOME/kaleido_admin/bin/deactivate
-}
+# function deactivate () {
+#   $WORKON_HOME/kaleido_admin/bin/deactivate
+# }
 
-topic "activate"
-activate
+# topic "activate"
+# activate
 
 
 
 pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt"
 pip install mysqlclient
 
-deactivate
+# deactivate
 
 cp -r $WORKON_HOME "$BUILD_DIR/.virtualenvs"
 
