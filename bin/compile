@@ -42,9 +42,9 @@ topic "ENV_DIR: $ENV_DIR"
 # echo "export WORKON_HOME=~/.virtualenvs" > "$BUILD_DIR/.bashrc"
 # echo "source ~/.heroku/python/bin/virtualenvwrapper.sh $BUILD_DIR" > "$BUILD_DIR/.bashrc"
 
-export WORKON_HOME="$APP_DIR/.virtualenvs"
-mkdir -p "$APP_DIR/.virtualenvs"
-chmod -R 777 "$APP_DIR/.virtualenvs"
+export WORKON_HOME="$CACHE_DIR/.virtualenvs"
+mkdir -p "$CACHE_DIR/.virtualenvs"
+chmod -R 777 "$CACHE_DIR/.virtualenvs"
 # source "$BUILD_DIR/.heroku/python/bin/virtualenvwrapper.sh"
 
 # source ~/.heroku/python/bin/virtualenvwrapper.sh
