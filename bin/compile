@@ -9,6 +9,7 @@ ROOT_DIR=$(dirname "$BIN_DIR")
 BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
+APP_DIR = "/app"
 
 function error() {
   echo " !     $*" >&2
@@ -40,10 +41,10 @@ topic "ENV_DIR: $ENV_DIR"
 
 # echo "export WORKON_HOME=~/.virtualenvs" > "$BUILD_DIR/.bashrc"
 # echo "source ~/.heroku/python/bin/virtualenvwrapper.sh $BUILD_DIR" > "$BUILD_DIR/.bashrc"
-APP = "/app"
-export WORKON_HOME="$APP/.virtualenvs"
-mkdir -p "$APP/.virtualenvs"
-chmod -R 777 "$APP/.virtualenvs"
+
+export WORKON_HOME="$APP_DIR/.virtualenvs"
+mkdir -p "$APP_DIR/.virtualenvs"
+chmod -R 777 "$APP_DIR/.virtualenvs"
 # source "$BUILD_DIR/.heroku/python/bin/virtualenvwrapper.sh"
 
 # source ~/.heroku/python/bin/virtualenvwrapper.sh
