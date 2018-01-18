@@ -44,6 +44,8 @@ virtualenv $WORKON_HOME/kaleido_admin -p python3
 $WORKON_HOME/kaleido_admin/bin/pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt"
 $WORKON_HOME/kaleido_admin/bin/pip install mysqlclient
 
+cp $WORKON_HOME "$BUILD_DIR/.virtualenvs"
+
 unset PYTHONPATH
 unset PYTHONHOME
 # help('modules')
