@@ -10,13 +10,6 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-topic "BIN_DIR: $BIN_DIR"
-topic "ROOT_DIR: $ROOT_DIR"
-topic "BUILD_DIR: $BUILD_DIR"
-topic "CACHE_DIR: $CACHE_DIR"
-topic "ENV_DIR: $ENV_DIR"
-
-
 function error() {
   echo " !     $*" >&2
   exit 1
@@ -33,6 +26,12 @@ function indent() {
     *)      sed -u "$c";;
   esac
 }
+
+topic "BIN_DIR: $BIN_DIR"
+topic "ROOT_DIR: $ROOT_DIR"
+topic "BUILD_DIR: $BUILD_DIR"
+topic "CACHE_DIR: $CACHE_DIR"
+topic "ENV_DIR: $ENV_DIR"
 
 # topic "create $BUILD_DIR/.virtualenvs"
 # mkdir -p "$BUILD_DIR/.virtualenvs"
