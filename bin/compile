@@ -9,7 +9,7 @@ ROOT_DIR=$(dirname "$BIN_DIR")
 BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
-APP_DIR = "/app"
+APP_DIR="/app"
 
 function error() {
   echo " !     $*" >&2
