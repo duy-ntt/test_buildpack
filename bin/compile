@@ -50,14 +50,14 @@ chmod -R 777 "$APP_DIR/.virtualenvs"
 # source ~/.heroku/python/bin/virtualenvwrapper.sh
 # mkvirtualenv kaleido_admin -p python3
 
-virtualenv $WORKON_HOME/kaleido_admin -p python3
+virtualenv "$WORKON_HOME/kaleido_admin" -p python3
 
 function activate () {
-  source $WORKON_HOME/kaleido_admin/bin/activate
+  source "$WORKON_HOME/kaleido_admin/bin/activate"
 }
 
 function deactivate () {
-  source $WORKON_HOME/kaleido_admin/bin/deactivate
+  source "$WORKON_HOME/kaleido_admin/bin/deactivate"
 }
 
 topic "activate"
@@ -70,7 +70,7 @@ pip install mysqlclient
 
 # deactivate
 
-cp -r $WORKON_HOME "$BUILD_DIR/.virtualenvs"
+cp -r "$WORKON_HOME" "$BUILD_DIR/.virtualenvs"
 
 unset PYTHONPATH
 unset PYTHONHOME
