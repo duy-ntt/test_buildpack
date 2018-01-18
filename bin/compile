@@ -27,21 +27,15 @@ function indent() {
   esac
 }
 
-topic "BIN_DIR: $BIN_DIR"
-topic "ROOT_DIR: $ROOT_DIR"
-topic "BUILD_DIR: $BUILD_DIR"
-topic "CACHE_DIR: $CACHE_DIR"
-topic "ENV_DIR: $ENV_DIR"
-
-topic "create $ROOT_DIR/.virtualenvs"
+topic "create $BUILD_DIR/.virtualenvs"
 mkdir -p "$BUILD_DIR/.virtualenvs"
-# topic "create $BUILD_DIR/.kaleido"
-# mkdir -p "$BUILD_DIR/.kaleido"
+topic "create $BUILD_DIR/.kaleido"
+mkdir -p "$BUILD_DIR/.kaleido"
 
 # echo "export WORKON_HOME=~/.virtualenvs" > "$BUILD_DIR/.bashrc"
 # echo "source ~/.heroku/python/bin/virtualenvwrapper.sh $BUILD_DIR" > "$BUILD_DIR/.bashrc"
 
-export WORKON_HOME="$ROOT_DIR/.virtualenvs"
+export WORKON_HOME="$BUILD_DIR/.virtualenvs"
 # source "$BUILD_DIR/.heroku/python/bin/virtualenvwrapper.sh"
 
 virtualenv $WORKON_HOME/kaleido_admin -p python3
