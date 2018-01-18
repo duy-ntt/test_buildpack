@@ -26,10 +26,10 @@ function indent() {
     *)      sed -u "$c";;
   esac
 }
-topic "create $BUILD_DIR/.virtualenvs"
-mkdir -p "$BUILD_DIR/.virtualenvs"
-topic "create $BUILD_DIR/.kaleido"
-mkdir -p "$BUILD_DIR/.kaleido"
+# topic "create $BUILD_DIR/.virtualenvs"
+# mkdir -p "$BUILD_DIR/.virtualenvs"
+# topic "create $BUILD_DIR/.kaleido"
+# mkdir -p "$BUILD_DIR/.kaleido"
 
 # echo "export WORKON_HOME=~/.virtualenvs" > "$BUILD_DIR/.bashrc"
 # echo "source ~/.heroku/python/bin/virtualenvwrapper.sh $BUILD_DIR" > "$BUILD_DIR/.bashrc"
@@ -42,8 +42,8 @@ topic "WORKON_HOME: $WORKON_HOME"
 virtualenv kaleido_admin -p python3
 # source $WORKON_HOME/kaleido_admin/bin/activate
 
-$BIN_DIR/.virtualenvs/kaleido_admin/bin/pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt"
-$BIN_DIR/.virtualenvs/kaleido_admin/bin/pip install mysqlclient
+$BIN_DIR/pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt"
+$BIN_DIR/pip install mysqlclient
 
 unset PYTHONPATH
 unset PYTHONHOME
