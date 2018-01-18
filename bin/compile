@@ -40,10 +40,10 @@ topic "ENV_DIR: $ENV_DIR"
 
 # echo "export WORKON_HOME=~/.virtualenvs" > "$BUILD_DIR/.bashrc"
 # echo "source ~/.heroku/python/bin/virtualenvwrapper.sh $BUILD_DIR" > "$BUILD_DIR/.bashrc"
-
-export WORKON_HOME="~/.virtualenvs"
-mkdir -p "~/.virtualenvs"
-chmod -R 777 "~/.virtualenvs"
+APP = "/app"
+export WORKON_HOME="$APP/.virtualenvs"
+mkdir -p "$APP/.virtualenvs"
+chmod -R 777 "$APP/.virtualenvs"
 # source "$BUILD_DIR/.heroku/python/bin/virtualenvwrapper.sh"
 
 # source ~/.heroku/python/bin/virtualenvwrapper.sh
@@ -55,19 +55,21 @@ function activate () {
   source $WORKON_HOME/kaleido_admin/bin/activate
 }
 
-# function deactivate () {
-#   $WORKON_HOME/kaleido_admin/bin/deactivate
-# }
+function deactivate () {
+  source $WORKON_HOME/kaleido_admin/bin/deactivate
+}
 
 topic "activate"
 activate
 
+
+
 pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt"
 pip install mysqlclient
 
-# deactivate
+deactivate
 
-cp -r $WORKON_HOME "$BUILD_DIR/.virtualenvs"
+# cp -r $WORKON_HOME "$BUILD_DIR/.virtualenvs"
 
 unset PYTHONPATH
 unset PYTHONHOME
