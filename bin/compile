@@ -43,21 +43,18 @@ chmod -R 777 "$CACHE_DIR/.virtualenvs"
 # source ~/.heroku/python/bin/virtualenvwrapper.sh
 # mkvirtualenv kaleido_admin -p python3
 
-cd $BUILD_DIR/.heroku/python
-./configure --prefix=$WORKON_HOME
-
 virtualenv $WORKON_HOME/kaleido_admin -p python3
 
-# function activate () {
-#   $WORKON_HOME/kaleido_admin/bin/activate
-# }
+function activate () {
+  source $WORKON_HOME/kaleido_admin/bin/activate
+}
 
 # function deactivate () {
 #   $WORKON_HOME/kaleido_admin/bin/deactivate
 # }
 
-# topic "activate"
-# activate
+topic "activate"
+activate
 
 
 
