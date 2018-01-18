@@ -36,6 +36,8 @@ function indent() {
 # echo "source ~/.heroku/python/bin/virtualenvwrapper.sh $BUILD_DIR" > "$BUILD_DIR/.bashrc"
 
 export WORKON_HOME="$CACHE_DIR/.virtualenvs"
+mkdir -p "$CACHE_DIR/.virtualenvs"
+chmod -R 777 "$CACHE_DIR/.virtualenvs"
 # source "$BUILD_DIR/.heroku/python/bin/virtualenvwrapper.sh"
 
 
