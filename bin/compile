@@ -70,7 +70,7 @@ pip install mysqlclient
 
 deactivate
 
-# cp -r $WORKON_HOME "$BUILD_DIR/.virtualenvs"
+cp -r $WORKON_HOME "$BUILD_DIR/.virtualenvs"
 
 unset PYTHONPATH
 unset PYTHONHOME
