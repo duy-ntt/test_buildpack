@@ -35,17 +35,20 @@ mkdir -p "$BUILD_DIR/.kaleido"
 # echo "source ~/.heroku/python/bin/virtualenvwrapper.sh $BUILD_DIR" > "$BUILD_DIR/.bashrc"
 
 export WORKON_HOME="$BUILD_DIR/.virtualenvs"
-source "$BUILD_DIR/.heroku/python/bin/virtualenvwrapper.sh"
+# source "$BUILD_DIR/.heroku/python/bin/virtualenvwrapper.sh"
 
-virtualenv $WORKON_HOME/kaleido_admin -p python3
+topic "WORKON_HOME: $WORKON_HOME"
+
+virtualenv kaleido_admin -p python3
 # source $WORKON_HOME/kaleido_admin/bin/activate
 
-$WORKON_HOME/kaleido_admin/bin/pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt"
-$WORKON_HOME/kaleido_admin/bin/pip install mysqlclient
+$BIN_DIR/.virtualenvs/kaleido_admin/bin/pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt"
+$BIN_DIR/.virtualenvs/kaleido_admin/bin/pip install mysqlclient
 
 unset PYTHONPATH
 unset PYTHONHOME
 # help('modules')
+# python -m gunicorn -w 2 kaleido_admin.wsgi:application --bind=unix:///tmp/kaleido_admin.sock
 
 # alias python="/usr/bin/python2.7"
 # alias python='python2'
