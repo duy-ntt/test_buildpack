@@ -65,8 +65,8 @@ activate
 
 
 
-pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt" 
-pip install mysqlclient
+# pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt" 
+# pip install mysqlclient
 
 # deactivate
 
@@ -75,6 +75,7 @@ cp -avr "$WORKON_HOME/" "$BUILD_DIR/.virtualenvs/" &> /dev/null
 
 unset PYTHONPATH
 unset PYTHONHOME
+
 # help('modules')
 # python -m gunicorn -w 2 kaleido_admin.wsgi:application --bind=unix:///tmp/kaleido_admin.sock
 
@@ -84,4 +85,29 @@ unset PYTHONHOME
 # cd $BUILD_DIR/kaleido_admin
 # pip install -r requirements.txt
 
-# deactivate
+deactivate
+
+
+######### NGINX ##########
+
+NGINX_VERSION=${NGINX_VERSION-1.11.8}
+
+nginx_tarball_url=http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
+
+mkdir -p "$APP_DIR/.kaleido"
+chmod -R 777 "$APP_DIR/.kaleido"
+
+cd $APP_DIR/.kaleido
+
+
+topic "Downloading $nginx_tarball_url"
+curl -L $nginx_tarball_url | tar xzv
+cd nginx-${NGINX_VERSION}
+./configure
+make 
+make install
+
+
+
+
+
