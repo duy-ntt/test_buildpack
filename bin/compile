@@ -109,6 +109,8 @@ make
 make install
 
 
+cp -avr "$APP_DIR/.kaleido/" "$BUILD_DIR/.kaleido/" &> /dev/null
+
 
 
 
