@@ -103,7 +103,8 @@ cd $APP_DIR/.kaleido
 topic "Downloading $nginx_tarball_url"
 curl -L $nginx_tarball_url | tar xzv
 cd nginx-${NGINX_VERSION}
-./configure
+./configure \
+	--prefix=$APP_DIR/.kaleido/nginx
 make 
 make install
 
