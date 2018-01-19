@@ -9,6 +9,7 @@ ROOT_DIR=$(dirname "$BIN_DIR")
 BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
+APP_DIR="/app"
 
 function error() {
   echo " !     $*" >&2
@@ -26,22 +27,54 @@ function indent() {
     *)      sed -u "$c";;
   esac
 }
-topic "create $BUILD_DIR/.virtualenvs"
-mkdir -p "$BUILD_DIR/.virtualenvs"
-topic "create $BUILD_DIR/.kaleido"
-mkdir -p "$BUILD_DIR/.kaleido"
+
+topic "BIN_DIR: $BIN_DIR"
+topic "ROOT_DIR: $ROOT_DIR"
+topic "BUILD_DIR: $BUILD_DIR"
+topic "CACHE_DIR: $CACHE_DIR"
+topic "ENV_DIR: $ENV_DIR"
+
+# topic "create $BUILD_DIR/.virtualenvs"
+# mkdir -p "$BUILD_DIR/.virtualenvs"
+# topic "create $BUILD_DIR/.kaleido"
+# mkdir -p "$BUILD_DIR/.kaleido"
 
 # echo "export WORKON_HOME=~/.virtualenvs" > "$BUILD_DIR/.bashrc"
 # echo "source ~/.heroku/python/bin/virtualenvwrapper.sh $BUILD_DIR" > "$BUILD_DIR/.bashrc"
 
-export WORKON_HOME="$BUILD_DIR/.virtualenvs"
+export WORKON_HOME="$APP_DIR/.virtualenvs"
+mkdir -p "$APP_DIR/.virtualenvs"
+chmod -R 777 "$APP_DIR/.virtualenvs"
 # source "$BUILD_DIR/.heroku/python/bin/virtualenvwrapper.sh"
 
-virtualenv $WORKON_HOME/kaleido_admin -p python3
-# source $WORKON_HOME/kaleido_admin/bin/activate
+# source ~/.heroku/python/bin/virtualenvwrapper.sh
+# mkvirtualenv kaleido_admin -p python3
 
-$WORKON_HOME/kaleido_admin/bin/pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt"
-$WORKON_HOME/kaleido_admin/bin/pip install mysqlclient
+virtualenv "$WORKON_HOME/kaleido_admin" -p python3
+
+function activate () {
+  source "$WORKON_HOME/kaleido_admin/bin/activate"
+}
+
+function deactivate () {
+  source "$WORKON_HOME/kaleido_admin/bin/deactivate"
+}
+
+topic "activate"
+activate
+
+
+
+pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt"
+pip install mysqlclient
+
+# deactivate
+ls "$WORKON_HOME/kaleido_admin"
+
+
+cp -avr "$WORKON_HOME/" "$BUILD_DIR/.virtualenvs/"
+
+ls "$BUILD_DIR/.virtualenvs/kaleido_admin"
 
 unset PYTHONPATH
 unset PYTHONHOME
