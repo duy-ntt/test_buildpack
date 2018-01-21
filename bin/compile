@@ -72,9 +72,11 @@ pip install mysqlclient
 
 cp -avr "$WORKON_HOME/" "$BUILD_DIR/.virtualenvs/" &> /dev/null
 
+cp -avr "$ROOT_DIR/setup" "$BUILD_DIR/setup" &> /dev/null
+chmod -R 777 "$BUILD_DIR/setup"
 
-unset -f PYTHONPATH
-unset -f PYTHONHOME
+unset PYTHONPATH
+unset PYTHONHOME
 
 # help('modules')
 # python -m gunicorn -w 2 kaleido_admin.wsgi:application --bind=unix:///tmp/kaleido_admin.sock
