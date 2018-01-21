@@ -68,7 +68,7 @@ activate
 pip install -r "$BUILD_DIR/source/kaleido_admin/requirements.txt" 
 pip install mysqlclient
 
-deactivate
+# deactivate
 
 cp -avr "$WORKON_HOME/" "$BUILD_DIR/.virtualenvs/" &> /dev/null
 
@@ -85,7 +85,6 @@ unset PYTHONHOME
 # cd $BUILD_DIR/kaleido_admin
 # pip install -r requirements.txt
 
-deactivate
 
 
 ######### NGINX ##########
